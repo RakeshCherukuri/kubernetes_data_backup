@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: two-containers
+spec:
+  containers:
+  - name: first
+    image: postbox525/container-1
+    volumeMounts:
+    - name:myvolume
+      mountPath: /
+  volumes:
+  - name: myvolume
+    awsElasticBlockStore:
+    volumeID: vol-027f87bff7ca8a9d5
